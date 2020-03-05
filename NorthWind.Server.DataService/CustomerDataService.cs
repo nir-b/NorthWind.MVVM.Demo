@@ -10,6 +10,8 @@ namespace NorthWind.Server.DataService
 {
     public class CustomerDataService : ICustomerDataService
     {
+        private static readonly log4net.ILog _log = log4net.LogManager.GetLogger(typeof(CustomerDataService));
+
         private readonly ICustomerRepository _customerRepository;
 
         public CustomerDataService(ICustomerRepository customerRepository)
@@ -18,6 +20,7 @@ namespace NorthWind.Server.DataService
         }
         public async Task<IList<Customer>> GetCustomers()
         {
+            _log.Info("Invoked CustomerDataService.GetCustomers()");
             return await Task.FromResult(_customerRepository.GetCustomers());
         }
 
