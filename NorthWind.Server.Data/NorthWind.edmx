@@ -1,10 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+
 <edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
   <!-- EF Runtime content -->
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="NorthwindModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="NorthwindModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012"
+              Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator"
+              xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation"
+              xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Categories">
           <Key>
             <PropertyRef Name="CategoryID" />
@@ -285,31 +289,41 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="CustOrderHist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+        <Function Name="CustOrderHist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false"
+                  ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="CustomerID" Type="nchar" Mode="In" />
         </Function>
-        <Function Name="CustOrdersDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+        <Function Name="CustOrdersDetail" Aggregate="false" BuiltIn="false" NiladicFunction="false"
+                  IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="OrderID" Type="int" Mode="In" />
         </Function>
-        <Function Name="CustOrdersOrders" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+        <Function Name="CustOrdersOrders" Aggregate="false" BuiltIn="false" NiladicFunction="false"
+                  IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="CustomerID" Type="nchar" Mode="In" />
         </Function>
-        <Function Name="Employee_Sales_by_Country" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="Employee Sales by Country">
+        <Function Name="Employee_Sales_by_Country" Aggregate="false" BuiltIn="false" NiladicFunction="false"
+                  IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo"
+                  StoreFunctionName="Employee Sales by Country">
           <Parameter Name="Beginning_Date" Type="datetime" Mode="In" />
           <Parameter Name="Ending_Date" Type="datetime" Mode="In" />
         </Function>
-        <Function Name="Sales_by_Year" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="Sales by Year">
+        <Function Name="Sales_by_Year" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false"
+                  ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="Sales by Year">
           <Parameter Name="Beginning_Date" Type="datetime" Mode="In" />
           <Parameter Name="Ending_Date" Type="datetime" Mode="In" />
         </Function>
-        <Function Name="SalesByCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+        <Function Name="SalesByCategory" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false"
+                  ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="CategoryName" Type="nvarchar" Mode="In" />
           <Parameter Name="OrdYear" Type="nvarchar" Mode="In" />
         </Function>
-        <Function Name="Ten_Most_Expensive_Products" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" StoreFunctionName="Ten Most Expensive Products" />
+        <Function Name="Ten_Most_Expensive_Products" Aggregate="false" BuiltIn="false" NiladicFunction="false"
+                  IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo"
+                  StoreFunctionName="Ten Most Expensive Products" />
         <EntityContainer Name="NorthwindModelStoreContainer">
           <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="CustomerDemographics" EntityType="Self.CustomerDemographics" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CustomerDemographics" EntityType="Self.CustomerDemographics" Schema="dbo"
+                     store:Type="Tables" />
           <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="EmployeeTerritories" EntityType="Self.EmployeeTerritories" Schema="dbo" store:Type="Tables" />
@@ -328,7 +342,8 @@
             <End Role="Employees" EntitySet="Employees" />
             <End Role="EmployeeTerritories" EntitySet="EmployeeTerritories" />
           </AssociationSet>
-          <AssociationSet Name="FK_EmployeeTerritories_Territories" Association="Self.FK_EmployeeTerritories_Territories">
+          <AssociationSet Name="FK_EmployeeTerritories_Territories"
+                          Association="Self.FK_EmployeeTerritories_Territories">
             <End Role="Territories" EntitySet="Territories" />
             <End Role="EmployeeTerritories" EntitySet="EmployeeTerritories" />
           </AssociationSet>
@@ -369,22 +384,28 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="NorthwindModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="NorthwindModel" Alias="Self" annotation:UseStrongSpatialTypes="false"
+              xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation"
+              xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation"
+              xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Category">
           <Key>
             <PropertyRef Name="CategoryID" />
           </Key>
           <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="CategoryName" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CategoryName" Type="String" MaxLength="15" FixedLength="false" Unicode="true"
+                    Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
-          <NavigationProperty Name="Products" Relationship="Self.FK_Products_Categories" FromRole="Categories" ToRole="Products" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Products_Categories" FromRole="Categories"
+                              ToRole="Products" />
         </EntityType>
         <EntityType Name="CustomerDemographic">
           <Key>
             <PropertyRef Name="CustomerTypeID" />
           </Key>
-          <Property Name="CustomerTypeID" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="CustomerTypeID" Type="String" MaxLength="10" FixedLength="true" Unicode="true"
+                    Nullable="false" />
           <Property Name="CustomerDesc" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Customer">
@@ -402,7 +423,8 @@
           <Property Name="Country" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
           <Property Name="Phone" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
           <Property Name="Fax" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Customers" FromRole="Customers" ToRole="Orders" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Customers" FromRole="Customers"
+                              ToRole="Orders" />
         </EntityType>
         <EntityType Name="Employee">
           <Key>
@@ -426,10 +448,14 @@
           <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ReportsTo" Type="Int32" />
           <Property Name="PhotoPath" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Employees1" Relationship="Self.FK_Employees_Employees" FromRole="Employees" ToRole="Employees1" />
-          <NavigationProperty Name="Employee1" Relationship="Self.FK_Employees_Employees" FromRole="Employees1" ToRole="Employees" />
-          <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Employees" FromRole="Employees" ToRole="Orders" />
-          <NavigationProperty Name="Territories" Relationship="Self.EmployeeTerritories" FromRole="Employees" ToRole="Territories" />
+          <NavigationProperty Name="Employees1" Relationship="Self.FK_Employees_Employees" FromRole="Employees"
+                              ToRole="Employees1" />
+          <NavigationProperty Name="Employee1" Relationship="Self.FK_Employees_Employees" FromRole="Employees1"
+                              ToRole="Employees" />
+          <NavigationProperty Name="Orders" Relationship="Self.FK_Orders_Employees" FromRole="Employees"
+                              ToRole="Orders" />
+          <NavigationProperty Name="Territories" Relationship="Self.EmployeeTerritories" FromRole="Employees"
+                              ToRole="Territories" />
         </EntityType>
         <EntityType Name="Order_Detail">
           <Key>
@@ -441,8 +467,10 @@
           <Property Name="UnitPrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
           <Property Name="Quantity" Type="Int16" Nullable="false" />
           <Property Name="Discount" Type="Single" Nullable="false" />
-          <NavigationProperty Name="Order" Relationship="Self.FK_Order_Details_Orders" FromRole="Order_Details" ToRole="Orders" />
-          <NavigationProperty Name="Product" Relationship="Self.FK_Order_Details_Products" FromRole="Order_Details" ToRole="Products" />
+          <NavigationProperty Name="Order" Relationship="Self.FK_Order_Details_Orders" FromRole="Order_Details"
+                              ToRole="Orders" />
+          <NavigationProperty Name="Product" Relationship="Self.FK_Order_Details_Products" FromRole="Order_Details"
+                              ToRole="Products" />
         </EntityType>
         <EntityType Name="Order">
           <Key>
@@ -477,17 +505,22 @@
           <Property Name="UnitsOnOrder" Type="Int16" />
           <Property Name="ReorderLevel" Type="Int16" />
           <Property Name="Discontinued" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="Category" Relationship="Self.FK_Products_Categories" FromRole="Products" ToRole="Categories" />
-          <NavigationProperty Name="Order_Details" Relationship="Self.FK_Order_Details_Products" FromRole="Products" ToRole="Order_Details" />
-          <NavigationProperty Name="Supplier" Relationship="Self.FK_Products_Suppliers" FromRole="Products" ToRole="Suppliers" />
+          <NavigationProperty Name="Category" Relationship="Self.FK_Products_Categories" FromRole="Products"
+                              ToRole="Categories" />
+          <NavigationProperty Name="Order_Details" Relationship="Self.FK_Order_Details_Products" FromRole="Products"
+                              ToRole="Order_Details" />
+          <NavigationProperty Name="Supplier" Relationship="Self.FK_Products_Suppliers" FromRole="Products"
+                              ToRole="Suppliers" />
         </EntityType>
         <EntityType Name="Region">
           <Key>
             <PropertyRef Name="RegionID" />
           </Key>
           <Property Name="RegionID" Type="Int32" Nullable="false" />
-          <Property Name="RegionDescription" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Territories" Relationship="Self.FK_Territories_Region" FromRole="Region" ToRole="Territories" />
+          <Property Name="RegionDescription" Type="String" MaxLength="50" FixedLength="true" Unicode="true"
+                    Nullable="false" />
+          <NavigationProperty Name="Territories" Relationship="Self.FK_Territories_Region" FromRole="Region"
+                              ToRole="Territories" />
         </EntityType>
         <EntityType Name="Shipper">
           <Key>
@@ -514,17 +547,21 @@
           <Property Name="Phone" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
           <Property Name="Fax" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
           <Property Name="HomePage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <NavigationProperty Name="Products" Relationship="Self.FK_Products_Suppliers" FromRole="Suppliers" ToRole="Products" />
+          <NavigationProperty Name="Products" Relationship="Self.FK_Products_Suppliers" FromRole="Suppliers"
+                              ToRole="Products" />
         </EntityType>
         <EntityType Name="Territory">
           <Key>
             <PropertyRef Name="TerritoryID" />
           </Key>
           <Property Name="TerritoryID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="TerritoryDescription" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="TerritoryDescription" Type="String" MaxLength="50" FixedLength="true" Unicode="true"
+                    Nullable="false" />
           <Property Name="RegionID" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="Region" Relationship="Self.FK_Territories_Region" FromRole="Territories" ToRole="Region" />
-          <NavigationProperty Name="Employees" Relationship="Self.EmployeeTerritories" FromRole="Territories" ToRole="Employees" />
+          <NavigationProperty Name="Region" Relationship="Self.FK_Territories_Region" FromRole="Territories"
+                              ToRole="Region" />
+          <NavigationProperty Name="Employees" Relationship="Self.EmployeeTerritories" FromRole="Territories"
+                              ToRole="Employees" />
         </EntityType>
         <Association Name="FK_Products_Categories">
           <End Role="Categories" Type="Self.Category" Multiplicity="0..1" />
@@ -699,7 +736,8 @@
           <FunctionImport Name="CustOrdersOrders" ReturnType="Collection(NorthwindModel.CustOrdersOrders_Result)">
             <Parameter Name="CustomerID" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="Employee_Sales_by_Country" ReturnType="Collection(NorthwindModel.Employee_Sales_by_Country_Result)">
+          <FunctionImport Name="Employee_Sales_by_Country"
+                          ReturnType="Collection(NorthwindModel.Employee_Sales_by_Country_Result)">
             <Parameter Name="Beginning_Date" Mode="In" Type="DateTime" />
             <Parameter Name="Ending_Date" Mode="In" Type="DateTime" />
           </FunctionImport>
@@ -711,7 +749,8 @@
             <Parameter Name="CategoryName" Mode="In" Type="String" />
             <Parameter Name="OrdYear" Mode="In" Type="String" />
           </FunctionImport>
-          <FunctionImport Name="Ten_Most_Expensive_Products" ReturnType="Collection(NorthwindModel.Ten_Most_Expensive_Products_Result)" />
+          <FunctionImport Name="Ten_Most_Expensive_Products"
+                          ReturnType="Collection(NorthwindModel.Ten_Most_Expensive_Products_Result)" />
         </EntityContainer>
         <ComplexType Name="CustOrderHist_Result">
           <Property Type="String" Name="ProductName" Nullable="false" MaxLength="40" />
@@ -757,7 +796,8 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="NorthwindModelStoreContainer" CdmEntityContainer="NorthwindEntities">
+        <EntityContainerMapping StorageEntityContainer="NorthwindModelStoreContainer"
+                                CdmEntityContainer="NorthwindEntities">
           <EntitySetMapping Name="Categories">
             <EntityTypeMapping TypeName="NorthwindModel.Category">
               <MappingFragment StoreEntitySet="Categories">
@@ -908,7 +948,8 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="EmployeeTerritories" TypeName="NorthwindModel.EmployeeTerritories" StoreEntitySet="EmployeeTerritories">
+          <AssociationSetMapping Name="EmployeeTerritories" TypeName="NorthwindModel.EmployeeTerritories"
+                                 StoreEntitySet="EmployeeTerritories">
             <EndProperty Name="Employees">
               <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
             </EndProperty>
@@ -924,7 +965,8 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="CustOrdersDetail" FunctionName="NorthwindModel.Store.CustOrdersDetail">
+          <FunctionImportMapping FunctionImportName="CustOrdersDetail"
+                                 FunctionName="NorthwindModel.Store.CustOrdersDetail">
             <ResultMapping>
               <ComplexTypeMapping TypeName="NorthwindModel.CustOrdersDetail_Result">
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
@@ -935,7 +977,8 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="CustOrdersOrders" FunctionName="NorthwindModel.Store.CustOrdersOrders">
+          <FunctionImportMapping FunctionImportName="CustOrdersOrders"
+                                 FunctionName="NorthwindModel.Store.CustOrdersOrders">
             <ResultMapping>
               <ComplexTypeMapping TypeName="NorthwindModel.CustOrdersOrders_Result">
                 <ScalarProperty Name="OrderID" ColumnName="OrderID" />
@@ -945,7 +988,8 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="Employee_Sales_by_Country" FunctionName="NorthwindModel.Store.Employee_Sales_by_Country">
+          <FunctionImportMapping FunctionImportName="Employee_Sales_by_Country"
+                                 FunctionName="NorthwindModel.Store.Employee_Sales_by_Country">
             <ResultMapping>
               <ComplexTypeMapping TypeName="NorthwindModel.Employee_Sales_by_Country_Result">
                 <ScalarProperty Name="Country" ColumnName="Country" />
@@ -967,7 +1011,8 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="SalesByCategory" FunctionName="NorthwindModel.Store.SalesByCategory">
+          <FunctionImportMapping FunctionImportName="SalesByCategory"
+                                 FunctionName="NorthwindModel.Store.SalesByCategory">
             <ResultMapping>
               <ComplexTypeMapping TypeName="NorthwindModel.SalesByCategory_Result">
                 <ScalarProperty Name="ProductName" ColumnName="ProductName" />
@@ -975,7 +1020,8 @@
               </ComplexTypeMapping>
             </ResultMapping>
           </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="Ten_Most_Expensive_Products" FunctionName="NorthwindModel.Store.Ten_Most_Expensive_Products">
+          <FunctionImportMapping FunctionImportName="Ten_Most_Expensive_Products"
+                                 FunctionName="NorthwindModel.Store.Ten_Most_Expensive_Products">
             <ResultMapping>
               <ComplexTypeMapping TypeName="NorthwindModel.Ten_Most_Expensive_Products_Result">
                 <ScalarProperty Name="TenMostExpensiveProducts" ColumnName="TenMostExpensiveProducts" />

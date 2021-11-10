@@ -1,5 +1,4 @@
-﻿using System;
-using Moq;
+﻿using Moq;
 using NorthWind.Server.Data;
 using NorthWind.Tests.Infrastructure;
 using NUnit.Framework;
@@ -9,10 +8,6 @@ namespace NorthWind.Server.DataRepository.Tests
     [TestFixture]
     public class CustomerRespositoryTests
     {
-        #region Test Infrastructure
-        private Mock<INorthwindEntities> _entitiesContextMock = null;
-        private ICustomerRepository _customerRepository = null;
-
         [SetUp]
         public void TestSetup()
         {
@@ -26,16 +21,18 @@ namespace NorthWind.Server.DataRepository.Tests
             _customerRepository = null;
             _entitiesContextMock = null;
         }
-        #endregion
+
+        private Mock<INorthwindEntities> _entitiesContextMock;
+        private ICustomerRepository _customerRepository;
 
         [Test]
         public void GetCustomers_Returns_All_Customers()
         {
             var customersInput = new[]
             {
-                new Customer{CustomerID = "1"},
-                new Customer{CustomerID = "2"},
-                new Customer{CustomerID = "3"}
+                new Customer {CustomerID = "1"},
+                new Customer {CustomerID = "2"},
+                new Customer {CustomerID = "3"}
             };
 
             var customersDbSet = customersInput.AsMockDbSet();
