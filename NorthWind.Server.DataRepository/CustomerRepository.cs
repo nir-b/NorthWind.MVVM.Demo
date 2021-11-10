@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
-using System.Text;
-using System.Threading.Tasks;
+using System.Linq;
 using NorthWind.Server.Data;
 
 namespace NorthWind.Server.DataRepository
@@ -16,6 +13,7 @@ namespace NorthWind.Server.DataRepository
         {
             _entitiesContext = entitiesContext;
         }
+
         public IList<Customer> GetCustomers()
         {
             var result = _entitiesContext.Customers.Include(c => c.Orders).AsNoTracking();

@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
-using System.Text;
-using System.Threading.Tasks;
 using NorthWind.Server.Data;
 using NorthWind.Server.DataService;
 
@@ -31,9 +28,6 @@ namespace NorthWind.Client.Services
             _selectedCustomerChanged.OnNext(selectedCustomer);
         }
 
-        public IObservable<Customer> CustomerSelectionChanged
-        {
-            get { return _selectedCustomerChanged; }
-        }
+        public IObservable<Customer> CustomerSelectionChanged => _selectedCustomerChanged;
     }
 }

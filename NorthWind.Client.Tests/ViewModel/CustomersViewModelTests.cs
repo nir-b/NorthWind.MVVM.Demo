@@ -7,17 +7,34 @@ using NorthWind.Client.ViewModels;
 using NorthWind.Server.Data;
 using NorthWind.Tests.Infrastructure;
 using NUnit.Framework;
-using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
+using Assert = NUnit.Framework.Assert;
 
 namespace NorthWind.Client.Tests.ViewModel
 {
     [TestClass]
     public class CustomersViewModelTests
     {
+        [Test]
+        public void CustomerViewModel_Initializes_With_AllCustomers()
+        {
+            var customersInput = new[]
+            {
+                new Customer {CustomerID = "1"},
+                new Customer {CustomerID = "2"},
+                new Customer {CustomerID = "3"}
+            };
+
+            _customerServiceMock.Setup(svc => svc.GetCustomers()).Returns(Observable.Return(customersInput));
+            _vm = new CustomersViewModel(_schedulerProvider, _customerServiceMock.Object);
+
+            Assert.AreEqual(customersInput.Length, _vm.Customers.Count);
+        }
+
         #region Test Infrastructure
-        private ISchedulerProvider _schedulerProvider = null;
-        private Mock<ICustomerService> _customerServiceMock = null;
-        private CustomersViewModel _vm = null;
+
+        private ISchedulerProvider _schedulerProvider;
+        private Mock<ICustomerService> _customerServiceMock;
+        private CustomersViewModel _vm;
 
         [SetUp]
         public void TestSetup()
@@ -33,22 +50,7 @@ namespace NorthWind.Client.Tests.ViewModel
             _customerServiceMock = null;
             _schedulerProvider = null;
         }
+
         #endregion
-
-        [Test]
-        public void CustomerViewModel_Initializes_With_AllCustomers()
-        {
-            var customersInput = new[]
-            {
-                new Customer{CustomerID = "1"},
-                new Customer{CustomerID = "2"},
-                new Customer{CustomerID = "3"}
-            };
-
-            _customerServiceMock.Setup(svc => svc.GetCustomers()).Returns(Observable.Return(customersInput));
-            _vm = new CustomersViewModel(_schedulerProvider, _customerServiceMock.Object);
-
-            NUnit.Framework.Assert.AreEqual(customersInput.Length, _vm.Customers.Count);
-        }
     }
 }
